@@ -27,6 +27,21 @@
 
 * The repos are cloned into `~/.homepkg`.
 
+* Directory structure:
+```sh
+~/.homepkg/
+    bin/ -> contains symlinks to all packages. Can be added to $PATH
+    repo-1
+    .
+    .
+    .
+    repo-N
+
+~/my-scripts/hello.sh -> ~/.homepkg/bin/hello.sh (contains `homepkg.yaml`)
+~/my-scripts/script1/world.sh -> ~/.homepkg/bin/world.sh
+~/other-scripts/hello-world.sh -> ~/.homepkg/bin/hello-world.sh
+```
+
 
 ```
 homepkg:
