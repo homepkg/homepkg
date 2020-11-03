@@ -1,0 +1,4 @@
+packages:
+    - name: foo
+      description: foo description
+      command: hello.sh

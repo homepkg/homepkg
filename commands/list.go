@@ -1,7 +1,9 @@
 package commands
 
 import (
-	"errors"
+	"fmt"
+
+	"github.com/homepkg/homepkg/config"
 )
 
 type listCommand struct {
@@ -24,5 +26,15 @@ func (command listCommand) IsForCommand(commandParams []string) bool {
 }
 
 func (command listCommand) Execute(commandParams []string) error {
-	return errors.New("Not implemented")
+
+	configuration, err := config.GetConfig("./test-resources/list-basic-information/homepkg.yaml")
+	if err != nil {
+		return err
+	}
+
+	for _, pack := range configuration.Packages {
+		fmt.Printf("%s - %s", pack.Name, pack.Description)
+	}
+
+	return nil
 }
